@@ -8,6 +8,10 @@ module.exports = function(fileInfo, api) {
     }
   });
 
+  if (!modelImports.length) {
+	  return root.toSource();
+  }
+
   const modelImportName = modelImports.find(j.Identifier).get(0).node.name;
 
   modelImports.remove();
